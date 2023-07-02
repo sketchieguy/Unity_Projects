@@ -5,8 +5,18 @@ using UnityEngine.UI;
 
 public class CollectController : MonoBehaviour
 {
-    public int coinCounter;
-    public Text scoreText;
+    public static int coinCounter;
+    public GameObject coinDisplay;
+
+
+    
+    void Update()
+    { 
+        //coinDisplay.GetComponent<Text>().text = "" + coinCounter;
+    }
+
+    //public Text coinDisplay;
+    /*public Text scoreText;
 
     public void IncrementScore()
     {
@@ -14,16 +24,12 @@ public class CollectController : MonoBehaviour
         scoreText.text = "" + coinCounter;
     }
 
-    /*public GameObject coinDisplay;
-    void Update()
-    {
-        coinDisplay.GetComponent<Text>().text = "" + coinCount;
-    }*/
+   
 
     public static CollectController inst;
 
     private void Awake()
     {
         inst = this;
-    }
+    }*/
 }

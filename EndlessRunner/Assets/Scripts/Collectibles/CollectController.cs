@@ -12,7 +12,7 @@ public class CollectController : MonoBehaviour
     
     void Update()
     { 
-        //coinDisplay.GetComponent<Text>().text = "" + coinCounter;
+        coinDisplay.GetComponent<Text>().text = "" + coinCounter;
     }
 
     //public Text coinDisplay;

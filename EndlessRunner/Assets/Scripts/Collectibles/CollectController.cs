@@ -15,21 +15,5 @@ public class CollectController : MonoBehaviour
         coinDisplay.GetComponent<Text>().text = "" + coinCounter;
     }
 
-    //public Text coinDisplay;
-    /*public Text scoreText;
-
-    public void IncrementScore()
-    {
-        coinCounter++;
-        scoreText.text = "" + coinCounter;
-    }
-
    
-
-    public static CollectController inst;
-
-    private void Awake()
-    {
-        inst = this;
-    }*/
 }

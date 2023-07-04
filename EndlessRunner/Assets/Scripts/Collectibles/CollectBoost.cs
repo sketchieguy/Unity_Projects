@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectCoin : MonoBehaviour
+public class CollectBoost : MonoBehaviour
 {
-    public AudioSource coinFX;
+    public AudioSource boostFX;
+    public static bool isBoost = false;
     void OnTriggerEnter(Collider other)
     {
-        coinFX.Play();
-        CollectController.coinCounter++;
+        boostFX.Play();
+        isBoost = true;
         this.gameObject.SetActive(false);
-        
+
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed = 7;
+    public float moveSpeed = 6;
     public float horizontalSpeed = 4;
     public static bool canMove = false;
     public bool isJumping = false;
@@ -14,7 +14,17 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
+        if (CollectBoost.isBoost == true)
+        {
+           // transform.Translate(Vector3.forward * moveSpeed * 2 * Time.deltaTime, Space.World);
+            //CollectBoost.isBoost = false;
+            StartCoroutine(BoostSequence());
+            
+        }
+        else
+        {
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
+        }
         if (canMove == true)
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -66,5 +76,11 @@ public class PlayerMove : MonoBehaviour
         {
             playerObject.GetComponent<Animator>().Play("Run");
         }
+    }
+    IEnumerator BoostSequence()
+    {
+        transform.Translate(Vector3.forward * moveSpeed * 2 * Time.deltaTime, Space.World);
+        yield return new WaitForSeconds(3);
+        CollectBoost.isBoost = false;
     }
 }
